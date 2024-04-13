@@ -51,7 +51,7 @@
             numOfPHILOSOPHERS++;
 
             int currentPHILOSOPHERSID = numOfPHILOSOPHERS;
-            ArePhilosopherseating.push_back(make_shared<counting_semaphore<10>>(0));
+            if (numOfPHILOSOPHERS > ArePhilosopherseating.size()) ArePhilosopherseating.push_back(make_shared<counting_semaphore<10>>(0));
             if (numOfPHILOSOPHERS > Philosophers.size())Philosophers.emplace_back([this, currentPHILOSOPHERSID]() { philosopher(currentPHILOSOPHERSID); });
             if (numOfPHILOSOPHERS > StatesArrayforPhilosophers.size()) StatesArrayforPhilosophers.push_back(0);
             if (numOfPHILOSOPHERS > testv.size())testv.push_back(0);
